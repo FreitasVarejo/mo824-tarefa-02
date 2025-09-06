@@ -1,0 +1,15 @@
+instances/scqbf/inst_100_aleatorio.dat
+instances/scqbf/inst_100_balanceado.dat
+instances/scqbf/inst_100_concentrado.dat
+instances/scqbf/inst_200_aleatorio.dat
+instances/scqbf/inst_200_balanceado.dat
+instances/scqbf/inst_200_concentrado.dat
+instances/scqbf/inst_25_aleatorio.dat
+instances/scqbf/inst_25_balanceado.dat
+instances/scqbf/inst_25_concentrado.dat
+instances/scqbf/inst_400_aleatorio.dat
+instances/scqbf/inst_400_balanceado.dat
+instances/scqbf/inst_400_concentrado.dat
+instances/scqbf/inst_50_aleatorio.dat
+instances/scqbf/inst_50_balanceado.dat
+instances/scqbf/inst_50_concentrado.dat
