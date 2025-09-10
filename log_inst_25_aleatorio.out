@@ -2,3 +2,10 @@
 OK: inst_25_aleatorio.dat | STD_a0.20_FIRST | f=63.000000 | best@1800s (it 1) | t=1800s
 (Iter 0) Best = Solution: cost=[-68.0], size=[12], elements=[19, 9, 5, 12, 22, 3, 21, 0, 23, 14, 13, 4]
 OK: inst_25_aleatorio.dat | STD_a0.60_FIRST | f=68.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-53.0], size=[11], elements=[19, 22, 3, 9, 12, 23, 21, 13, 5, 7, 0]
+OK: inst_25_aleatorio.dat | STD_a0.20_BEST | f=53.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-61.0], size=[11], elements=[19, 22, 3, 12, 9, 5, 4, 14, 13, 0, 21]
+OK: inst_25_aleatorio.dat | SAMPLED_p64_FIRST | f=61.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) [alpha=0.2] Best = Solution: cost=[-61.0], size=[11], elements=[19, 9, 22, 12, 3, 21, 1, 0, 14, 23, 13]
+OK: inst_25_aleatorio.dat | REACTIVE_FIRST | f=61.000000 | best@1800s (it 1) | t=1800s
+Resultados salvos em: out_inst_25_aleatorio.csv

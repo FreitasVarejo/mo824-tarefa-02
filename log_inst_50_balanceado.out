@@ -2,3 +2,10 @@
 OK: inst_50_balanceado.dat | STD_a0.20_FIRST | f=154.000000 | best@1800s (it 1) | t=1800s
 (Iter 0) Best = Solution: cost=[-151.0], size=[29], elements=[32, 3, 11, 27, 21, 20, 14, 10, 41, 36, 40, 24, 2, 48, 17, 23, 0, 46, 33, 45, 35, 7, 29, 22, 19, 31, 4, 28, 18]
 OK: inst_50_balanceado.dat | STD_a0.60_FIRST | f=151.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-144.0], size=[28], elements=[23, 46, 48, 0, 22, 4, 36, 24, 7, 35, 29, 17, 19, 2, 20, 11, 10, 14, 33, 32, 18, 41, 40, 31, 3, 38, 27, 26]
+OK: inst_50_balanceado.dat | STD_a0.20_BEST | f=144.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-154.0], size=[29], elements=[24, 23, 48, 7, 0, 35, 36, 46, 22, 2, 17, 20, 29, 33, 19, 32, 3, 14, 40, 10, 45, 41, 21, 11, 18, 4, 28, 31, 49]
+OK: inst_50_balanceado.dat | SAMPLED_p64_FIRST | f=154.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) [alpha=0.4] Best = Solution: cost=[-145.0], size=[29], elements=[11, 45, 14, 40, 24, 10, 20, 0, 7, 2, 19, 29, 46, 31, 35, 33, 32, 41, 22, 36, 23, 3, 48, 17, 38, 21, 49, 28, 18]
+OK: inst_50_balanceado.dat | REACTIVE_FIRST | f=145.000000 | best@1800s (it 1) | t=1800s
+Resultados salvos em: out_inst_50_balanceado.csv

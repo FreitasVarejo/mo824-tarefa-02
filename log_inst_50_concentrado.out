@@ -2,3 +2,10 @@
 OK: inst_50_concentrado.dat | STD_a0.20_FIRST | f=161.000000 | best@1800s (it 1) | t=1800s
 (Iter 0) Best = Solution: cost=[-152.0], size=[25], elements=[23, 33, 46, 24, 9, 47, 17, 49, 42, 40, 22, 10, 41, 45, 16, 4, 29, 27, 38, 21, 18, 25, 37, 0, 39]
 OK: inst_50_concentrado.dat | STD_a0.60_FIRST | f=152.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-154.0], size=[24], elements=[33, 38, 40, 41, 10, 27, 49, 17, 23, 46, 21, 18, 25, 12, 24, 4, 42, 22, 47, 16, 9, 20, 45, 37]
+OK: inst_50_concentrado.dat | STD_a0.20_BEST | f=154.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-155.0], size=[26], elements=[10, 41, 46, 23, 49, 38, 40, 25, 24, 21, 17, 27, 33, 18, 42, 16, 22, 9, 47, 4, 29, 8, 45, 37, 0, 12]
+OK: inst_50_concentrado.dat | SAMPLED_p64_FIRST | f=155.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) [alpha=0.2] Best = Solution: cost=[-158.0], size=[25], elements=[21, 17, 24, 49, 10, 46, 41, 25, 18, 23, 38, 40, 27, 33, 9, 47, 16, 22, 4, 42, 29, 45, 12, 0, 39]
+OK: inst_50_concentrado.dat | REACTIVE_FIRST | f=158.000000 | best@1800s (it 1) | t=1800s
+Resultados salvos em: out_inst_50_concentrado.csv

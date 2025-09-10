@@ -2,3 +2,10 @@
 OK: inst_50_aleatorio.dat | STD_a0.20_FIRST | f=134.000000 | best@1800s (it 1) | t=1800s
 (Iter 0) Best = Solution: cost=[-136.0], size=[25], elements=[47, 20, 17, 18, 33, 28, 42, 11, 5, 34, 9, 21, 0, 31, 8, 7, 39, 30, 22, 15, 26, 49, 19, 23, 4]
 OK: inst_50_aleatorio.dat | STD_a0.60_FIRST | f=136.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-110.0], size=[25], elements=[9, 0, 28, 21, 5, 15, 34, 49, 39, 11, 8, 7, 30, 20, 17, 31, 22, 33, 26, 42, 40, 41, 29, 47, 4]
+OK: inst_50_aleatorio.dat | STD_a0.20_BEST | f=110.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-134.0], size=[25], elements=[11, 23, 39, 34, 49, 28, 21, 15, 0, 9, 5, 18, 8, 20, 17, 22, 42, 7, 19, 30, 47, 31, 26, 33, 14]
+OK: inst_50_aleatorio.dat | SAMPLED_p64_FIRST | f=134.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) [alpha=0.5] Best = Solution: cost=[-136.0], size=[25], elements=[47, 5, 9, 18, 17, 26, 20, 28, 31, 15, 30, 7, 19, 8, 49, 0, 23, 39, 21, 11, 22, 34, 33, 42, 4]
+OK: inst_50_aleatorio.dat | REACTIVE_FIRST | f=136.000000 | best@1800s (it 1) | t=1800s
+Resultados salvos em: out_inst_50_aleatorio.csv
