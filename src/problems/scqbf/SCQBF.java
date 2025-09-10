@@ -39,17 +39,42 @@ public class SCQBF implements Evaluator<Integer> {
     double[] w;      // w[i] = sum_j x[j]*(A[i][j] + A[j][i])
     double f;        // valor atual f(x) = x' A x
 
+    /* ---------- Utilidades de parsing ---------- */
+
+    /** Lê a próxima linha não vazia; lança exceção clara se EOF for atingido. */
+    private static String readNonEmpty(BufferedReader br, String ctx) throws IOException {
+        String line;
+        while (true) {
+            line = br.readLine();
+            if (line == null)
+                throw new IOException("Fim de arquivo inesperado ao ler " + ctx);
+            if (!line.trim().isEmpty())
+                return line;
+            // pula linhas em branco
+        }
+    }
+
     public SCQBF(String filename) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             // n
-            n = Integer.parseInt(br.readLine().trim());
+            String nLine = readNonEmpty(br, "n");
+            n = Integer.parseInt(nLine.trim());
+
             // tamanhos dos conjuntos
-            String[] parts = br.readLine().trim().split("\\s+");
+            String sizesLine = readNonEmpty(br, "tamanhos dos conjuntos");
+            String[] parts = sizesLine.trim().split("\\s+");
             if (parts.length != n) {
-                throw new IOException("Linha de tamanhos dos conjuntos não tem n entradas.");
+                throw new IOException("Linha de tamanhos dos conjuntos != n (" + parts.length + " vs " + n + ")");
             }
             int[] sz = new int[n];
-            for (int i = 0; i < n; i++) sz[i] = Integer.parseInt(parts[i]);
+            for (int i = 0; i < n; i++) {
+                if (parts[i].isEmpty())
+                    throw new IOException("Token vazio em tamanhos na posição " + i);
+                sz[i] = Integer.parseInt(parts[i]);
+                if (sz[i] < 0) {
+                    throw new IOException("|S_" + i + "| negativo: " + sz[i]);
+                }
+            }
 
             // S_i
             sets = new ArrayList<>(n);
@@ -57,13 +82,21 @@ public class SCQBF implements Evaluator<Integer> {
                 if (sz[i] == 0) {
                     sets.add(new int[0]);
                 } else {
-                    String line = br.readLine();
-                    if (line == null) throw new IOException("Faltou linha de conjunto para i=" + i);
+                    String line = readNonEmpty(br, "S_" + i);
                     String[] toks = line.trim().split("\\s+");
+                    if (toks.length != sz[i]) {
+                        throw new IOException("S_" + i + ": esperado " + sz[i] + " elementos, mas veio " + toks.length);
+                    }
                     int[] list = new int[toks.length];
                     for (int t = 0; t < toks.length; t++) {
-                        // instâncias A1 são 1-based para elementos: converter para 0-based
-                        list[t] = Integer.parseInt(toks[t]) - 1;
+                        if (toks[t].isEmpty())
+                            throw new IOException("Token vazio em S_" + i + " idx " + t);
+                        int v = Integer.parseInt(toks[t]); // 1-based no arquivo
+                        int v0 = v - 1;                    // 0-based interno
+                        if (v0 < 0 || v0 >= n) {
+                            throw new IOException("Elemento fora do domínio em S_" + i + ": " + v + " (válido: 1.."+ n +")");
+                        }
+                        list[t] = v0;
                     }
                     sets.add(list);
                 }
@@ -72,14 +105,17 @@ public class SCQBF implements Evaluator<Integer> {
             // Matriz A (triangular superior no arquivo)
             double[][] T = new double[n][n];
             for (int i = 0; i < n; i++) {
-                String line = br.readLine();
-                if (line == null) throw new IOException("Faltou linha da matriz A para i=" + i);
+                String line = readNonEmpty(br, "A[" + i + ", i..n-1]");
                 String[] toks = line.trim().split("\\s+");
-                if (toks.length != (n - i)) {
-                    throw new IOException("Linha A[" + i + ", i..n-1] com tamanho incorreto.");
+                int expected = (n - i);
+                if (toks.length != expected) {
+                    throw new IOException("A[" + i + "]: esperado " + expected + " valores, veio " + toks.length);
                 }
                 for (int j = i; j < n; j++) {
-                    T[i][j] = Double.parseDouble(toks[j - i]);
+                    String tok = toks[j - i];
+                    if (tok.isEmpty())
+                        throw new IOException("Token vazio em A[" + i + "," + j + "]");
+                    T[i][j] = Double.parseDouble(tok);
                 }
             }
 
@@ -122,7 +158,7 @@ public class SCQBF implements Evaluator<Integer> {
 
     private void rebuildFromSolution(Solution<Integer> sol) {
         resetState();
-        // Reconstroi incrementalmente (rápido e simples)
+        // Reconstrói incrementalmente (rápido e simples)
         for (int e : sol) {
             applyAdd(e, true);
         }
@@ -144,10 +180,7 @@ public class SCQBF implements Evaluator<Integer> {
             double s = symA(i, j);
             w[j] += s;
         }
-        // w[i] deve refletir Σ_j x[j] * symA(i,j)
-        // O laço acima já somou nas posições w[j]; w[i] ainda não tem os simétricos
-        // mas como não usamos w[i] imediatamente após add aqui, não há problema prático.
-        // (Se quiser precisão imediata: calcule w[i] = Σ_j x[j]*symA(i,j) em um laço.)
+        // w[i] = Σ_j x[j] * symA(i,j)
         double wi = 0.0;
         for (int j = 0; j < n; j++) if (x[j]) wi += symA(i, j);
         w[i] = wi;

@@ -31,7 +31,7 @@ public class RunnerSCQBF {
             try (DirectoryStream<Path> ds = Files.newDirectoryStream(p)) {
                 for (Path f : ds) if (Files.isRegularFile(f)) insts.add(f);
             }
-        } else { // trata como arquivo-lista
+        } else if (p.toString().endsWith(".txt")) { // <-- arquivo-lista
             try (BufferedReader br = Files.newBufferedReader(p)) {
                 String line;
                 while ((line = br.readLine()) != null) {
@@ -41,10 +41,13 @@ public class RunnerSCQBF {
                     insts.add(f.isAbsolute() ? f : p.getParent().resolve(f));
                 }
             }
+        } else { // <-- arquivo .dat (ou outro): tratar como única instância
+            insts.add(p);
         }
         insts.sort(Comparator.comparing(x -> x.getFileName().toString()));
         return insts;
     }
+
 
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {
@@ -87,7 +90,7 @@ public class RunnerSCQBF {
                         cfg.mode, cfg.ls,
                         cfg.sampleP, cfg.reactiveAlphas, cfg.reactiveBlock
                     );
-                    GRASP_SCQBF.verbose = false;
+                    GRASP_SCQBF.verbose = true;
                     grasp.setTimeLimitSeconds(seconds);
 
                     Solution<Integer> best = grasp.solve();
@@ -102,13 +105,18 @@ public class RunnerSCQBF {
                     );
                     pw.flush();
 
-                    System.out.printf("OK: %s | %s | f=%.6f | best@%ds (it %d) | t=%.0fs%n",
+                    System.out.printf(
+                        "OK: %s | %s | f=%.6f | best@%ds (it %d) | t=%ds%n",
                         inst.getFileName(), cfg.name, bestF,
-                        Math.round(grasp.bestTimeSec), grasp.bestIter, Math.round(elapsed)
-                    );
+                        Math.round(grasp.bestTimeSec),    // %d
+                        grasp.bestIter,
+                        Math.round(elapsed)               // %d
+                        );
+
                 }
             }
         }
         System.out.println("Resultados salvos em: " + outCsv);
     }
+    
 }

@@ -1,0 +1,3 @@
+instance,config,alpha,mode,ls,best_f,time_s,time_to_best_s,iters,best_iter,seed
+inst_200_aleatorio.dat,STD_a0.20_FIRST,0.20,STANDARD,FIRST_IMPROVING,556.000000,1800.735,1800.577,1,1,42
+inst_200_aleatorio.dat,STD_a0.60_FIRST,0.60,STANDARD,FIRST_IMPROVING,549.000000,1800.066,1800.011,1,1,42

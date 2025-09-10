@@ -1,0 +1,3 @@
+instance,config,alpha,mode,ls,best_f,time_s,time_to_best_s,iters,best_iter,seed
+inst_200_balanceado.dat,STD_a0.20_FIRST,0.20,STANDARD,FIRST_IMPROVING,450.000000,1800.634,1800.475,1,1,42
+inst_200_balanceado.dat,STD_a0.60_FIRST,0.60,STANDARD,FIRST_IMPROVING,449.000000,1800.075,1800.003,1,1,42

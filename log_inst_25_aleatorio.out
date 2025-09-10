@@ -1,0 +1,4 @@
+(Iter 0) Best = Solution: cost=[-63.0], size=[11], elements=[4, 19, 22, 12, 3, 23, 9, 21, 7, 14, 0]
+OK: inst_25_aleatorio.dat | STD_a0.20_FIRST | f=63.000000 | best@1800s (it 1) | t=1800s
+(Iter 0) Best = Solution: cost=[-68.0], size=[12], elements=[19, 9, 5, 12, 22, 3, 21, 0, 23, 14, 13, 4]
+OK: inst_25_aleatorio.dat | STD_a0.60_FIRST | f=68.000000 | best@1800s (it 1) | t=1800s

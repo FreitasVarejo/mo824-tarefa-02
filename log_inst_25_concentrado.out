@@ -1,0 +1,7 @@
+(Iter 0) Best = Solution: cost=[-29.0], size=[7], elements=[20, 12, 18, 16, 3, 11, 19]
+(Iter 2) Best = Solution: cost=[-30.0], size=[7], elements=[20, 12, 16, 18, 11, 9, 3]
+OK: inst_25_concentrado.dat | STD_a0.20_FIRST | f=30.000000 | best@0s (it 3) | t=1800s
+(Iter 0) Best = Solution: cost=[-29.0], size=[7], elements=[19, 18, 11, 3, 16, 12, 20]
+(Iter 1) Best = Solution: cost=[-30.0], size=[6], elements=[20, 3, 11, 16, 12, 18]
+OK: inst_25_concentrado.dat | STD_a0.60_FIRST | f=30.000000 | best@0s (it 2) | t=1800s
+(Iter 0) Best = Solution: cost=[-30.0], size=[7], elements=[18, 20, 12, 11, 16, 9, 3]
